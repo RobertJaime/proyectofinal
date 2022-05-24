@@ -1,1 +1,3 @@
 # proyectofinal
+juego guayabita :
+reglas
