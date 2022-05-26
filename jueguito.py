@@ -150,8 +150,17 @@ jugadores={
 }
 
 #Codigo dado por turnos de cada jugador 
-import random
+j1_dinero=int(input("Ingrese el valor inicial con el que jugara:"))
+j2_dinero=int(input("Ingrese el valor inicial con el que jugara:"))
+j3_dinero=int(input("Ingrese el valor inicial con el que jugara:"))
 
+if j1_dinero and j3_dinero and j2_dinero<1000:
+    print("No es posible jugar con un valor inicial menor a $1.000")
+else:
+    print("Listos para jugar")
+
+
+#Turno 1 
 d=random.randint(1,6)
 d1=random.randint(1,6)
 print(f"Numero:", d)
@@ -164,3 +173,13 @@ else:
 if (d1>d):
     print("GANASTE, Toma el dinero_apostado")
 else:print("PERDISTE, Pon en la mesa el dinero_apostado")
+
+if (d==1 or d==6):
+    queda1=j1_dinero-200
+    print("Total:",queda1)
+if (d1>d):
+    queda1=j1_dinero+apuesta_inicial
+    print(queda1)
+else:
+    queda1=j1_dinero-apuesta_inicial
+    print("Total:",queda1)
