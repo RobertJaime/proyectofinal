@@ -95,7 +95,40 @@ else:
     cajatextoplata=tkinter.Entry(j3)
     cajatextoplata.place(relx=0.5,rely=0.5)
 
+#botones inicio y reglas
+def reglas():
+    
+    r=tkinter.Toplevel()
+    r.geometry("500x400")
+    r.config(background="gold")
+    tr=tkinter.Label(r,text="reglas")
+    tr.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+    reg=tkinter.Label(r,text="Regla 1. Todos los jugadores deben poner un minimo inicial de $200 ")
+    reg2=tkinter.Label(r,text="Regla2. Al sacar el numero 1 y 6 se deben poner $200")
+    reg3=tkinter.Label(r,text="Regla3. El juego acaba cuando dos jugadores se queden con menos de $200")
+    reg4=tkinter.Label(r,text="Regla4. Solo se pueden apostar los siguientes valores:$100 $200 y $500")
+    reg.pack(fill=tkinter.X,padx=5,ipadx=5,ipady=5)
+    reg2.pack(fill=tkinter.X,padx=5,ipadx=5,ipady=5)
+    reg3.pack(fill=tkinter.X,padx=5,ipadx=5,ipady=5)
+    reg4.pack(fill=tkinter.X,padx=5,ipadx=5,ipady=5)
+    boton=tkinter.Button(r,text="ok",command=r.destroy)
+    boton.pack(side=tkinter.BOTTOM)
 
+bregla=tkinter.Button(ventana,command=reglas,text="reglas",bg="blue",fg="white")
+bregla.place(relx=0.6,rely=0.7)
+#Boton juego 
+
+def inicio():
+    ventana.withdraw()
+    ini=tkinter.Toplevel()
+    ini.geometry("380x300")
+    ini.config(background="light cyan")
+    tini=tkinter.Label(ini,text="aqui va el juego",bg="light cyan")
+    tini.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+    
+
+bini=tkinter.Button(ventana,command=inicio,text="Jugar",bg="green",fg="white")
+bini.place(relx=0.3,rely=0.7)
 
 
 jugadores={
