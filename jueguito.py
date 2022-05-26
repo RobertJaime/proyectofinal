@@ -148,3 +148,19 @@ jugadores={
         "apuesta":"",
     },
 }
+
+#Codigo dado por turnos de cada jugador 
+import random
+
+d=random.randint(1,6)
+d1=random.randint(1,6)
+print(f"Numero:", d)
+if (d==1 or d==6):
+    print("Debe poner $200")
+else:
+    apuesta_inicial=int(input("Ingrese su apuesta:"))
+    d1=random.randint(1,6)
+    print("Numero:",d1)
+if (d1>d):
+    print("GANASTE, Toma el dinero_apostado")
+else:print("PERDISTE, Pon en la mesa el dinero_apostado")
