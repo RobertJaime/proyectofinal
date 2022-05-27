@@ -129,6 +129,38 @@ def inicio():
 
 bini=tkinter.Button(ventana,command=inicio,text="Jugar",bg="green",fg="white")
 bini.place(relx=0.3,rely=0.7)
+#botones apuestas
+        def apuesta_j1():
+            apj1=tkinter.Toplevel()
+            apj1.geometry("300x100")
+            apj1.config(background="gold")
+
+            tapj1=tkinter.Label(apj1,text="apuesta jugador 1 💰💰💰")
+            tapj1.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+
+            tapj2=tkinter.Label(apj1,text="Cuanto desea apostar? :")
+            tapj2.place(relx=0.1,rely=0.4)
+
+            cajatex=tkinter.Entry(apj1)
+            cajatex.place(relx=0.57,rely=0.4)
+
+            a=jugadores["a"]["plata"]
+            deb=tkinter.Label(apj1,text=f"Le queda {a} pesos")
+            deb.place(relx=0.25,rely=0.8)
+
+            def apostar():
+                apj1.destroy()
+
+            cerrar=tkinter.Button(apj1,text="¡Apostar!",command=apostar)
+            cerrar.place(relx=0.8,rely=0.8)
+
+        j1_apuesta=tkinter.Button(ini,text="apuesta jugador 1",command=apuesta_j1)
+        j2_apuesta=tkinter.Button(ini,text="apuesta jugador 2",)
+        j3_apuesta=tkinter.Button(ini,text="apuesta jugador 3",)
+
+        j1_apuesta.place(relx=0.1,rely=0.7)
+        j2_apuesta.place(relx=0.45,rely=0.7)
+        j3_apuesta.place(relx=0.8,rely=0.7)
 
 
 jugadores={
