@@ -130,38 +130,191 @@ def inicio():
 bini=tkinter.Button(ventana,command=inicio,text="Jugar",bg="green",fg="white")
 bini.place(relx=0.3,rely=0.7)
 #botones apuestas
-        def apuesta_j1():
-            apj1=tkinter.Toplevel()
-            apj1.geometry("300x100")
-            apj1.config(background="gold")
+        def dado():
+            turno=jugadores["dado"]["turno"]
+            turint=int(turno)
 
-            tapj1=tkinter.Label(apj1,text="apuesta jugador 1 💰💰💰")
-            tapj1.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+            d=random.randint(1,6)
+            if ((turno==0 or turno==5 or turno==1) and (d==1 or d==6)):
+                    tpierde=turint+1
+                    jugadores["dado"]["turno"]=tpierde
+            elif((turno==3) and (d==1 or d==6)):
+                jugadores["dado"]["turno"]=0
 
-            tapj2=tkinter.Label(apj1,text="Cuanto desea apostar? :")
-            tapj2.place(relx=0.1,rely=0.4)
+            jugadores["dado"]["numero"]=d
+            
+            numdado=jugadores["dado"]["numero"]
+            numintdado=int(numdado)
 
-            cajatex=tkinter.Entry(apj1)
-            cajatex.place(relx=0.57,rely=0.4)
+            if turint<=5:
+                trn=turint+1
+                jugadores["dado"]["turno"]=trn
+                
+            else:
+                jugadores["dado"]["turno"]=1
+            
+            if turno==0  or turno==5:
+                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 1 😎",font=("Helvetica",10))
+                turno_jugador1.place(relx=0.4,rely=0.2)
+            if turno==1 or turno==2:
+                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 2 😎",font=("Helvetica",10))
+                turno_jugador1.place(relx=0.4,rely=0.2)
+            if turno==3 or turno==4:
+                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 3 😎",font=("Helvetica",10))
+                turno_jugador1.place(relx=0.4,rely=0.2)
+            
+            #mensaje apuesta
+            #turno jugador 1
+            if turno==1: 
+                apj1=tkinter.Toplevel()
+                apj1.geometry("300x100")
+                apj1.config(background="gold")
 
-            a=jugadores["a"]["plata"]
-            deb=tkinter.Label(apj1,text=f"Le queda {a} pesos")
-            deb.place(relx=0.25,rely=0.8)
+                tapj1=tkinter.Label(apj1,text="apuesta jugador 2 💰💰💰")
+                tapj1.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
 
-            def apostar():
-                apj1.destroy()
+                tapj2=tkinter.Label(apj1,text="Cuanto desea apostar? :")
+                tapj2.place(relx=0.1,rely=0.4)
 
-            cerrar=tkinter.Button(apj1,text="¡Apostar!",command=apostar)
-            cerrar.place(relx=0.8,rely=0.8)
+                def ap100():
+                    jugadores["b"]["apuesta"]=100
+                    apj1.destroy()
+                    print (jugadores)
 
-        j1_apuesta=tkinter.Button(ini,text="apuesta jugador 1",command=apuesta_j1)
-        j2_apuesta=tkinter.Button(ini,text="apuesta jugador 2",)
-        j3_apuesta=tkinter.Button(ini,text="apuesta jugador 3",)
+                boton100=tkinter.Button(apj1,text="$100",command=ap100)
+                boton100.place(relx=0.54,rely=0.4)
 
-        j1_apuesta.place(relx=0.1,rely=0.7)
-        j2_apuesta.place(relx=0.45,rely=0.7)
-        j3_apuesta.place(relx=0.8,rely=0.7)
+                
+                def ap200():
+                    jugadores["b"]["apuesta"]=200
+                    apj1.destroy()
+                    print (jugadores)
 
+                boton200=tkinter.Button(apj1,text="$200",command=ap200)
+                boton200.place(relx=0.67,rely=0.4)
+
+                
+                def ap500():
+                    jugadores["b"]["apuesta"]=500
+                    apj1.destroy()
+                    print (jugadores)
+
+                boton500=tkinter.Button(apj1,text="$500",command=ap500)
+                boton500.place(relx=0.8,rely=0.4)
+
+                a=jugadores["a"]["plata"]
+                deb=tkinter.Label(apj1,text=f"Le queda {a} pesos")
+                deb.place(relx=0.25,rely=0.8)
+
+                def apostar():
+                    apj1.destroy()
+
+                
+            #turno jugador 3  
+            if turno==3 :
+                apj2=tkinter.Toplevel()
+                apj2.geometry("300x100")
+                apj2.config(background="gold")
+
+                tapj2=tkinter.Label(apj2,text="apuesta jugador 3 💰💰💰")
+                tapj2.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+
+                tapj2=tkinter.Label(apj2,text="Cuanto desea apostar? :")
+                tapj2.place(relx=0.1,rely=0.4)
+
+                def ap100():
+                    jugadores["c"]["apuesta"]=100
+                    apj2.destroy()
+                    print (jugadores)
+
+                boton100=tkinter.Button(apj2,text="$100",command=ap100)
+                boton100.place(relx=0.54,rely=0.4)
+
+                
+                def ap200():
+                    jugadores["c"]["apuesta"]=200
+                    apj2.destroy()
+                    print (jugadores)
+
+                boton200=tkinter.Button(apj2,text="$200",command=ap200)
+                boton200.place(relx=0.67,rely=0.4)
+
+                
+                def ap500():
+                    jugadores["c"]["apuesta"]=500
+                    apj2.destroy()
+                    print (jugadores)
+
+                boton500=tkinter.Button(apj2,text="$500",command=ap500)
+                boton500.place(relx=0.8,rely=0.4)
+
+                a=jugadores["b"]["plata"]
+                deb=tkinter.Label(apj2,text=f"Le queda {a} pesos")
+                deb.place(relx=0.25,rely=0.8)
+                
+                def apostar():
+                    apj2.destroy()
+
+                cerrar=tkinter.Button(apj2,text="¡Apostar!",command=apostar)
+                cerrar.place(relx=0.8,rely=0.8)
+            #turno jugador 1
+            if turno==5 :
+                apj3=tkinter.Toplevel()
+                apj3.geometry("300x100")
+                apj3.config(background="gold")
+
+                tapj3=tkinter.Label(apj3,text="apuesta jugador 1 💰💰💰")
+                tapj3.pack(padx=4,pady=5,ipadx=6,ipady=5,fill=tkinter.X)
+
+                tapj2=tkinter.Label(apj3,text="Cuanto desea apostar? :")
+                tapj2.place(relx=0.1,rely=0.4)
+
+                def ap100():
+                    jugadores["a"]["apuesta"]=100
+                    apj3.destroy()
+                    print (jugadores)
+
+                boton100=tkinter.Button(apj3,text="$100",command=ap100)
+                boton100.place(relx=0.54,rely=0.4)
+
+                
+                def ap200():
+                    jugadores["a"]["apuesta"]=200
+                    apj3.destroy()
+                    print (jugadores)
+
+                boton200=tkinter.Button(apj3,text="$200",command=ap200)
+                boton200.place(relx=0.67,rely=0.4)
+
+                
+                def ap500():
+                    jugadores["a"]["apuesta"]=500
+                    apj3.destroy()
+                    print (jugadores)
+
+                boton500=tkinter.Button(apj3,text="$500",command=ap500)
+                boton500.place(relx=0.8,rely=0.4)
+
+                a=jugadores["c"]["plata"]
+                deb=tkinter.Label(apj3,text=f"Le queda {a} pesos")
+                deb.place(relx=0.25,rely=0.8)
+                
+                def apostar():
+                    apj3.destroy()
+
+                cerrar=tkinter.Button(apj3,text="¡Apostar!",command=apostar)
+                cerrar.place(relx=0.8,rely=0.8)
+
+                
+
+            texdado=tkinter.Label(ini,text=d,font=("Helvetica",40))
+            texdado.place(relx=0.5,rely=0.4)
+            print(jugadores)
+            
+            
+                   
+        
+        
 
 jugadores={
     "a":{
