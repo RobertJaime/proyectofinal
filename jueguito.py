@@ -149,10 +149,8 @@ jugadores={
     },
 }
 
+#Dado
 import random
-
-
-
 #Apuestas
 
 j1_dinero=int(input("Ingrese el valor inicial con el que jugara:"))
@@ -170,27 +168,49 @@ jp2=j2_dinero-200
 jp3=j3_dinero-200
 mesadinero=(200+200+200)
 print ("En la mesa hay:", mesadinero)
+print("Turno jugador 1...")
 
 #Turno 1 
+apuesta_inicial=(int)
+queda1=(int)
 d=random.randint(1,6)
 d1=random.randint(1,6)
+print("Tirando el dado...")
 print(f"Numero:", d)
 if (d==1 or d==6):
-    print("Debe poner $200")
-else:
+    print("Perdiste,Debe poner $200")
+if (d==2 or 3 or 4 or 5):
     apuesta_inicial=int(input("Ingrese su apuesta:"))
     d1=random.randint(1,6)
+    print("Tirando dado de nuevo...")
     print("Numero:",d1)
 if (d1>d):
     print("GANASTE, Toma el dinero_apostado")
 else:print("PERDISTE, Pon en la mesa el dinero_apostado")
+mesa=int
+mesa1=int
+mesa2=int
+mesa=mesadinero+200
+mesa1=mesadinero+apuesta_inicial
+mesa2=mesadinero-apuesta_inicial
+if (mesa)<=0:
+    print("El juego termino")
+if j1_dinero or j2_dinero or j3_dinero==(j1_dinero+j2_dinero+j3_dinero):
+    print("El juego termino")
+if j1_dinero or j2_dinero or j3_dinero<=0:
+    print("El juego termino")
 
 if (d==1 or d==6):
     queda1=jp1-200
     print("Total:",queda1)
+    print("Ahora en la mesa hay:", mesa)
 if (d1>d):
     queda1=(jp1)+apuesta_inicial
-    print(queda1)
+    print("Tu total es de",queda1)
+    print("Ahora en la mesa hay:",mesa2 )
 else:
     queda1=(jp1)-apuesta_inicial
-    print("Total:",queda1)
+    print("Tu total es de:",queda1)
+    print("Ahora en la mesa hay:",mesa1)
+
+print("Es el turno del jugador 2")
