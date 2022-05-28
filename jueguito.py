@@ -131,37 +131,44 @@ bini=tkinter.Button(ventana,command=inicio,text="Jugar",bg="green",fg="white")
 bini.place(relx=0.3,rely=0.7)
 #botones apuestas
         def dado():
+
             turno=jugadores["dado"]["turno"]
             turint=int(turno)
 
+
+
             d=random.randint(1,6)
-            if ((turno==0 or turno==5 or turno==1) and (d==1 or d==6)):
-                    tpierde=turint+1
-                    jugadores["dado"]["turno"]=tpierde
+            ap1=jugadores["a"]["apuesta"]
+            ap2=jugadores["b"]["apuesta"]
+            ap3=jugadores["c"]["apuesta"]
+
+
+
+            if ((turno==0 or turno==1 or turno==5) and (d==1 or d==6) ) :
+                    messagebox.showinfo("pierdes","pones 200")                    
             elif((turno==3) and (d==1 or d==6)):
-                jugadores["dado"]["turno"]=0
+                messagebox.showinfo("pierdes","pones 200")            
+            else:
+                if turno==0  or turno==5:
+                    turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 1 😎",font=("Helvetica",10))
+                    turno_jugador1.place(relx=0.4,rely=0.2)
 
-            jugadores["dado"]["numero"]=d
-            
-            numdado=jugadores["dado"]["numero"]
-            numintdado=int(numdado)
+                   
+                elif turno==1 or turno==2:
+                    turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 2 😎",font=("Helvetica",10))
+                    turno_jugador1.place(relx=0.4,rely=0.2)
 
+
+                elif turno==3 or turno==4:
+                    turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 3 😎",font=("Helvetica",10))
+                    turno_jugador1.place(relx=0.4,rely=0.2)
+   
             if turint<=5:
                 trn=turint+1
                 jugadores["dado"]["turno"]=trn
                 
             else:
-                jugadores["dado"]["turno"]=1
-            
-            if turno==0  or turno==5:
-                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 1 😎",font=("Helvetica",10))
-                turno_jugador1.place(relx=0.4,rely=0.2)
-            if turno==1 or turno==2:
-                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 2 😎",font=("Helvetica",10))
-                turno_jugador1.place(relx=0.4,rely=0.2)
-            if turno==3 or turno==4:
-                turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 3 😎",font=("Helvetica",10))
-                turno_jugador1.place(relx=0.4,rely=0.2)
+                jugadores["dado"]["turno"]=trn
             
             #mensaje apuesta
             #turno jugador 1
