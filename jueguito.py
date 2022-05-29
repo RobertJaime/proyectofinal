@@ -141,27 +141,64 @@ bini.place(relx=0.3,rely=0.7)
             ap1=jugadores["a"]["apuesta"]
             ap2=jugadores["b"]["apuesta"]
             ap3=jugadores["c"]["apuesta"]
-
-
-
+            
+            
             if ((turno==0 or turno==1 or turno==5) and (d==1 or d==6) ) :
+
                     messagebox.showinfo("pierdes","pones 200")                    
+
             elif((turno==3) and (d==1 or d==6)):
+
                 messagebox.showinfo("pierdes","pones 200")            
+
             else:
+
                 if turno==0  or turno==5:
+
                     turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 1 😎",font=("Helvetica",10))
+
                     turno_jugador1.place(relx=0.4,rely=0.2)
 
-                   
+                    if d>jugadores["dado"]["numero"]:
+
+                        messagebox.showinfo("GANASTE",f"Ganaste toma{ap1}")
+
+                    else:
+
+                        messagebox.showinfo("perdiste",f"Perdiste, pon en la mesa :{ap1}")
+
+
+
                 elif turno==1 or turno==2:
-                    turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 2 😎",font=("Helvetica",10))
-                    turno_jugador1.place(relx=0.4,rely=0.2)
 
+                    turno_jugador2=tkinter.Label(ini,text="TURNO DEL JUGADOR 2 😎",font=("Helvetica",10))
 
-                elif turno==3 or turno==4:
-                    turno_jugador1=tkinter.Label(ini,text="TURNO DEL JUGADOR 3 😎",font=("Helvetica",10))
-                    turno_jugador1.place(relx=0.4,rely=0.2)
+                    turno_jugador2.place(relx=0.4,rely=0.2)
+
+                    if d>jugadores["dado"]["numero"]:
+
+                        messagebox.showinfo("GANASTE",f"Ganaste toma{ap2}")
+
+                    else:
+
+                        messagebox.showinfo("perdiste",f"Perdiste, pon en la mesa :{ap2}")
+
+elif turno==3 or turno==4:
+
+                    turno_jugador3=tkinter.Label(ini,text="TURNO DEL JUGADOR 3 😎",font=("Helvetica",10))
+
+                    turno_jugador3.place(relx=0.4,rely=0.2)
+
+                    if d>jugadores["dado"]["numero"]:
+
+                        messagebox.showinfo("GANASTE",f"Ganaste toma{ap3}")
+
+                    else:
+
+                        messagebox.showinfo("perdiste",f"Perdiste, pon en la mesa :{ap3}")
+
+            
+            
    
             if turint<=5:
                 trn=turint+1
